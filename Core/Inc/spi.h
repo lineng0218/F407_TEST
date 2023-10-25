@@ -28,6 +28,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "bsp_DRV8303.h"
+
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -42,9 +43,7 @@ extern SPI_HandleTypeDef hspi3;
 
 void MX_SPI1_Init(void);
 void MX_SPI3_Init(void);
-
 uint16_t DRV8303_ReadWrite(SPI_TypeDef* SPIx,uint16_t TxData);
-
 /* USER CODE BEGIN Prototypes */
 
 /* USER CODE END Prototypes */
