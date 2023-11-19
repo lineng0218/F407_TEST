@@ -57,24 +57,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define MOTOR_PWM_AL_Pin GPIO_PIN_13
-#define MOTOR_PWM_AL_GPIO_Port GPIOB
-#define MOTOR_PWM_BL_Pin GPIO_PIN_14
-#define MOTOR_PWM_BL_GPIO_Port GPIOB
-#define MOTOR_PWM_CL_Pin GPIO_PIN_15
-#define MOTOR_PWM_CL_GPIO_Port GPIOB
-#define HALL_A_Pin GPIO_PIN_6
-#define HALL_A_GPIO_Port GPIOC
-#define HALL_B_Pin GPIO_PIN_7
-#define HALL_B_GPIO_Port GPIOC
-#define HALL_C_Pin GPIO_PIN_8
-#define HALL_C_GPIO_Port GPIOC
-#define MOTOR_PWM_AH_Pin GPIO_PIN_8
-#define MOTOR_PWM_AH_GPIO_Port GPIOA
-#define MOTOR_PWM_BH_Pin GPIO_PIN_9
-#define MOTOR_PWM_BH_GPIO_Port GPIOA
-#define MOTOR_PWM_CH_Pin GPIO_PIN_10
-#define MOTOR_PWM_CH_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
