@@ -16,22 +16,42 @@ uint16_t Re_vaule2=0;
 uint16_t Re_vaule3=0;
 uint16_t Re_vaule4=0;
 
+extern SPI_HandleTypeDef hspi1;
+
+extern SPI_HandleTypeDef hspi3;
+
 /** DRv8303的SPI初始化以及使能*/
 static void DRV8303_SPI_Init(void)
 {
-
-    MX_GPIO_Init();
-
+    SPI_NSS_Init();
     MX_SPI1_Init();
     MX_SPI3_Init();
 
-    __HAL_SPI_ENABLE(&hspi1);
-    __HAL_SPI_ENABLE(&hspi3);
+}
+
+static void DRV8303_EN_GATE_Init(void)
+{
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+    DRV8303_EN_GATE1_GPIO_ENABLE();
+    DRV8303_EN_GATE1_GPIO_ENABLE();
+
+    HAL_GPIO_WritePin(DRV8303_EN_GATE1_GPIO_PORT, DRV8303_EN_GATE1_GPIO_PIN, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(DRV8303_EN_GATE2_GPIO_PORT, DRV8303_EN_GATE2_GPIO_PIN, GPIO_PIN_RESET);
+
+    GPIO_InitStruct.Pin = DRV8303_EN_GATE1_GPIO_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    HAL_GPIO_Init(DRV8303_EN_GATE1_GPIO_PORT, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = DRV8303_EN_GATE2_GPIO_PIN;
+    HAL_GPIO_Init(DRV8303_EN_GATE2_GPIO_PORT, &GPIO_InitStruct);
 }
 /** DRv8303的设置参数*/
 void DRV8303_Init(void)
 {
-
+    DRV8303_EN_GATE_Init();
     DRV8303_SPI_Init();
 
     DRV8303_EN_GATE1_High();

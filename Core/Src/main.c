@@ -1,60 +1,11 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
-/* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "cmsis_os.h"
-#include "adc.h"
-#include "i2c.h"
 #include "spi.h"
 #include "bsp_timer.h"
-#include "gpio.h"
 #include "bsp_DRV8303.h"
 #include "bsp_key.h"
 #include "bsp_BLDC_control.h"
+#include "bsp_led.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
@@ -77,47 +28,48 @@ int main(void)
   HAL_Init();
 
   SystemClock_Config();
+  led_init();
+  LED1_ON;
   KEY_Init();
   DRV8303_Init();
   bldcm_init();
-  while (1)
-  {
-      if( Key_Scan(KEY1_GPIO_Port, KEY1_Pin ) == KEY_ON)
-      {
-          set_bldcm_speed(ChannelPulse);
-          set_bldcm_enable();
-      }
+    while (1)
+    {
+        if( Key_Scan(KEY2_GPIO_PORT, KEY2_GPIO_PIN ) == KEY_ON)
+        {
+            set_bldcm_speed(ChannelPulse);
+            set_bldcm_enable();
+        }
 
-      if( Key_Scan(KEY2_GPIO_Port, KEY2_Pin) == KEY_ON)
-      {
-          set_bldcm_disable();
-      }
+        if( Key_Scan(KEY3_GPIO_PORT , KEY3_GPIO_PIN) == KEY_ON)
+        {
+            set_bldcm_disable();
+        }
 
-      if( Key_Scan(KEY3_GPIO_Port, KEY3_Pin) == KEY_ON)
-      {
-          ChannelPulse += PWM_MAX_PERIOD_COUNT/10;
+        if( Key_Scan(KEY4_GPIO_PORT ,KEY4_GPIO_PIN) == KEY_ON)
+        {
+            ChannelPulse += PWM_MAX_PERIOD_COUNT/10;
+            if(ChannelPulse > PWM_MAX_PERIOD_COUNT)
+                ChannelPulse = PWM_MAX_PERIOD_COUNT;
 
-          if(ChannelPulse > PWM_MAX_PERIOD_COUNT)
-              ChannelPulse = PWM_MAX_PERIOD_COUNT;
+            set_bldcm_speed(ChannelPulse);
+        }
 
-          set_bldcm_speed(ChannelPulse);
-      }
+        if( Key_Scan(KEY5_GPIO_PORT,KEY5_GPIO_PIN) == KEY_ON)
+        {
+            if(ChannelPulse < PWM_MAX_PERIOD_COUNT/10)
+                ChannelPulse = 0;
+            else
+                ChannelPulse -= PWM_MAX_PERIOD_COUNT/10;
 
-      if( Key_Scan(KEY4_GPIO_Port, KEY4_Pin) == KEY_ON)
-      {
-          if(ChannelPulse < PWM_MAX_PERIOD_COUNT/10)
-              ChannelPulse = 0;
-          else
-              ChannelPulse -= PWM_MAX_PERIOD_COUNT/10;
+            set_bldcm_speed(ChannelPulse);
+        }
 
-          set_bldcm_speed(ChannelPulse);
-      }
-
-      if( Key_Scan(KEY5_GPIO_Port, KEY5_Pin) == KEY_ON)
-      {
-          set_bldcm_direction( (++i % 2) ? MOTOR_FWD : MOTOR_REV);
-      }
-  }
+        if( Key_Scan(KEY6_GPIO_PORT,KEY6_GPIO_PIN) == KEY_ON)
+        {
+            set_bldcm_direction( (++i % 2) ? MOTOR_FWD : MOTOR_REV);
+        }
+    }
 }
 
 /**

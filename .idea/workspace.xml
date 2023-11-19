@@ -21,28 +21,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="622d2662-30cf-4fe5-8d25-ce6b5af5d16f" name="Changes" comment="test">
-      <change afterPath="$PROJECT_DIR$/Core/Inc/bsp_BLDC_control.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Inc/bsp_key.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Inc/bsp_timer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Src/bsp_BLDC_control.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Src/bsp_key.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Src/bsp_timer.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Inc/bsp_led.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Src/bsp_led.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mxproject" beforeDir="false" afterPath="$PROJECT_DIR$/.mxproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Inc/bsp_BLDC_control.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/bsp_BLDC_control.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Inc/bsp_DRV8303.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/bsp_DRV8303.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Inc/bsp_key.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/bsp_key.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Inc/bsp_timer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/bsp_timer.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Inc/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/main.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Inc/spi.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/spi.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Inc/stm32f4xx_hal_conf.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/stm32f4xx_hal_conf.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Inc/stm32f4xx_it.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/stm32f4xx_it.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Inc/usart.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/bsp_DRV8303.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/bsp_DRV8303.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/bsp_key.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/bsp_key.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/bsp_timer.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/bsp_timer.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/gpio.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/gpio.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/spi.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/spi.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Src/stm32f4xx_it.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/stm32f4xx_it.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Src/usart.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/F407_TEST.ioc" beforeDir="false" afterPath="$PROJECT_DIR$/F407_TEST.ioc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,12 +96,12 @@
   }
 }</component>
   <component name="RunManager" selected="OpenOCD Download &amp; Run.F407_TEST.elf">
-    <configuration name="F407_TEST.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="F407_TEST" TARGET_NAME="F407_TEST.elf" CONFIG_NAME="Debug-MinGW" RUN_TARGET_PROJECT_NAME="F407_TEST" RUN_TARGET_NAME="F407_TEST.elf">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="F407_TEST.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="F407_TEST" TARGET_NAME="F407_TEST.elf" CONFIG_NAME="Debug-MinGW" RUN_TARGET_PROJECT_NAME="F407_TEST" RUN_TARGET_NAME="F407_TEST.elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -152,6 +145,7 @@
       <workItem from="1698069130374" duration="145000" />
       <workItem from="1698111033059" duration="13662000" />
       <workItem from="1698197570659" duration="1863000" />
+      <workItem from="1700398003464" duration="1758000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1698111342454</created>

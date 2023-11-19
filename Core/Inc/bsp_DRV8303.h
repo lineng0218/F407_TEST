@@ -7,7 +7,6 @@ extern "C" {
 
 //#include "stm32f4xx_hal_def.h"
 #include "stm32f4xx_hal.h"
-#include "gpio.h"
 #include "spi.h"
 
 #define DRV8303_1                                           SPI1
@@ -82,8 +81,15 @@ extern "C" {
 #define DRV8303_DC_CAL_CH2_A2_Short_INPUT                   ((uint16_t)0x0001<<5)
 
 #define DRV8303_OC_TOFF_Cycle_by_Cycle                      ((uint16_t)0x0000<<6)
-#define DRV8303_OC_TOFF_Off_Time_C                    ((uint16_t)0x0001<<6)
+#define DRV8303_OC_TOFF_Off_Time_C                           ((uint16_t)0x0001<<6)
+/** DRV8303使能引脚*/
+#define DRV8303_EN_GATE1_GPIO_PIN                            GPIO_PIN_8
+#define DRV8303_EN_GATE1_GPIO_PORT                           GPIOD
+#define DRV8303_EN_GATE1_GPIO_ENABLE()                       __HAL_RCC_GPIOD_CLK_ENABLE()
 
+#define DRV8303_EN_GATE2_GPIO_PIN                            GPIO_PIN_2
+#define DRV8303_EN_GATE2_GPIO_PORT                           GPIOE
+#define DRV8303_EN_GATE2_GPIO_ENABLE()                       __HAL_RCC_GPIOE_CLK_ENABLE()
 /** DRV8303的SPI片选*/
 #define DRV8303_SPI1_NSS_LOW()    HAL_GPIO_WritePin(GPIOA, SPI1_NSS_Pin, GPIO_PIN_RESET);
 #define DRV8303_SPI1_NSS_High()   HAL_GPIO_WritePin(GPIOA, SPI1_NSS_Pin, GPIO_PIN_SET);
@@ -91,15 +97,15 @@ extern "C" {
 #define DRV8303_SPI3_NSS_LOW()    HAL_GPIO_WritePin(GPIOA, SPI3_NSS_Pin, GPIO_PIN_RESET);
 #define DRV8303_SPI3_NSS_High()   HAL_GPIO_WritePin(GPIOA, SPI3_NSS_Pin, GPIO_PIN_SET);
 
-#define  DRV8303_SPI_NSS_High()    HAL_GPIO_WritePin(GPIOA, SPI1_NSS_Pin|SPI3_NSS_Pin, GPIO_PIN_SET);
-#define  DRV8303_SPI_NSS_LOW()      HAL_GPIO_WritePin(GPIOA, SPI1_NSS_Pin|SPI3_NSS_Pin, GPIO_PIN_RESET);
+#define  DRV8303_SPI_NSS_High()    HAL_GPIO_WritePin(GPIOA, SPI3_NSS_GPIO_PIN|SPI1_NSS_GPIO_PIN, GPIO_PIN_SET);
+#define  DRV8303_SPI_NSS_LOW()     HAL_GPIO_WritePin(GPIOA, SPI3_NSS_GPIO_PIN|SPI1_NSS_GPIO_PIN, GPIO_PIN_RESET);
 
 /** DRV8303使能*/
-#define DRV8303_EN_GATE2_LOW()    HAL_GPIO_WritePin(EN_GATE2_GPIO_Port, EN_GATE2_Pin, GPIO_PIN_RESET);
-#define DRV8303_EN_GATE2_High()    HAL_GPIO_WritePin(EN_GATE2_GPIO_Port, EN_GATE2_Pin, GPIO_PIN_SET);
+#define DRV8303_EN_GATE2_LOW()    HAL_GPIO_WritePin(DRV8303_EN_GATE2_GPIO_PORT ,DRV8303_EN_GATE2_GPIO_PIN , GPIO_PIN_RESET);
+#define DRV8303_EN_GATE2_High()    HAL_GPIO_WritePin(DRV8303_EN_GATE2_GPIO_PORT ,DRV8303_EN_GATE2_GPIO_PIN , GPIO_PIN_SET);
 
-#define DRV8303_EN_GATE1_LOW()    HAL_GPIO_WritePin(EN_GATE1_GPIO_Port, EN_GATE1_Pin, GPIO_PIN_RESET);
-#define DRV8303_EN_GATE1_High()    HAL_GPIO_WritePin(EN_GATE1_GPIO_Port, EN_GATE1_Pin, GPIO_PIN_SET);
+#define DRV8303_EN_GATE1_LOW()    HAL_GPIO_WritePin(DRV8303_EN_GATE1_GPIO_PORT,DRV8303_EN_GATE1_GPIO_PIN , GPIO_PIN_RESET);
+#define DRV8303_EN_GATE1_High()    HAL_GPIO_WritePin(DRV8303_EN_GATE1_GPIO_PORT,DRV8303_EN_GATE1_GPIO_PIN , GPIO_PIN_SET);
 
 #define SPIT_FLAG_TIMEOUT              0x1000
 

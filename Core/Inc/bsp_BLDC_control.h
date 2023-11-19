@@ -29,3 +29,4 @@ void set_bldcm_enable(void);
 void set_bldcm_disable(void);
 
 #endif //F407_TEST_BSP_BLDC_CONTROL_H
+

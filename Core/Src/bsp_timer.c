@@ -71,9 +71,9 @@ static void TIM_Mode_Config(void)
     TIM_OCInitStructure.OCIdleState = TIM_OCIDLESTATE_SET;
     TIM_OCInitStructure.OCNIdleState = TIM_OCNIDLESTATE_RESET;
 
-    HAL_TIM_PWM_ConfigChannel(&htim1,&TIM_OCInitStructure,TIM_CHANNEL_1);    // ³õÊ¼»¯Í¨µÀ 1 Êä³ö PWM
-    HAL_TIM_PWM_ConfigChannel(&htim1,&TIM_OCInitStructure,TIM_CHANNEL_2);    // ³õÊ¼»¯Í¨µÀ 2 Êä³ö PWM
-    HAL_TIM_PWM_ConfigChannel(&htim1,&TIM_OCInitStructure,TIM_CHANNEL_3);    // ³õÊ¼»¯Í¨µÀ 3 Êä³ö PWM
+    HAL_TIM_PWM_ConfigChannel(&htim1,&TIM_OCInitStructure,TIM_CHANNEL_1);
+    HAL_TIM_PWM_ConfigChannel(&htim1,&TIM_OCInitStructure,TIM_CHANNEL_2);
+    HAL_TIM_PWM_ConfigChannel(&htim1,&TIM_OCInitStructure,TIM_CHANNEL_3);
 
     HAL_TIMEx_ConfigCommutationEvent(&htim1, TIM_COM_TS_ITRx, TIM_COMMUTATION_SOFTWARE);
 
@@ -365,8 +365,7 @@ void HAL_TIM_TriggerCallback(TIM_HandleTypeDef *htim)
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    if (update++ > 1)
-    {
+    if (update++ > 1) {
         update = 0;
         hall_disable();
         stop_pwm_output();

@@ -57,28 +57,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define EN_GATE2_Pin GPIO_PIN_2
-#define EN_GATE2_GPIO_Port GPIOE
-#define SPI1_NSS_Pin GPIO_PIN_4
-#define SPI1_NSS_GPIO_Port GPIOA
-#define KEY1_Pin GPIO_PIN_1
-#define KEY1_GPIO_Port GPIOB
-#define KEY2_Pin GPIO_PIN_11
-#define KEY2_GPIO_Port GPIOF
-#define KEY3_Pin GPIO_PIN_13
-#define KEY3_GPIO_Port GPIOF
-#define KEY4_Pin GPIO_PIN_14
-#define KEY4_GPIO_Port GPIOF
-#define KEY5_Pin GPIO_PIN_15
-#define KEY5_GPIO_Port GPIOF
 #define MOTOR_PWM_AL_Pin GPIO_PIN_13
 #define MOTOR_PWM_AL_GPIO_Port GPIOB
 #define MOTOR_PWM_BL_Pin GPIO_PIN_14
 #define MOTOR_PWM_BL_GPIO_Port GPIOB
 #define MOTOR_PWM_CL_Pin GPIO_PIN_15
 #define MOTOR_PWM_CL_GPIO_Port GPIOB
-#define EN_GATE1_Pin GPIO_PIN_8
-#define EN_GATE1_GPIO_Port GPIOD
 #define HALL_A_Pin GPIO_PIN_6
 #define HALL_A_GPIO_Port GPIOC
 #define HALL_B_Pin GPIO_PIN_7
@@ -91,8 +75,6 @@ void Error_Handler(void);
 #define MOTOR_PWM_BH_GPIO_Port GPIOA
 #define MOTOR_PWM_CH_Pin GPIO_PIN_10
 #define MOTOR_PWM_CH_GPIO_Port GPIOA
-#define SPI3_NSS_Pin GPIO_PIN_15
-#define SPI3_NSS_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
